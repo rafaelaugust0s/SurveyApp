@@ -13,7 +13,7 @@
      // phone:{type:String, require:true},
      // sin:{type:String, require:true},
      // maritalStatus:{type:String, require:true},
-     spouse_id:{type:mongoose.Types.ObjectId, required:true,ref:'Spouse'}
+     spouse_id:{type:mongoose.Types.ObjectId, required:false,ref:'Spouse'}
 
  })
 
