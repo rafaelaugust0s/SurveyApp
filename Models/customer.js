@@ -5,7 +5,7 @@
 
      name:{type:String, require:true},
      email:{type:String, require:true},
-     // dateOfBirth:{type:String, require:true},
+     dateOfBirth:{type:String, require:true},
      // address:{type:String, require:true},
      // postalCode:{type:String, require:true},
      // city:{type:String, require:true},

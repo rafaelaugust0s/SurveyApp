@@ -14,23 +14,23 @@ const index = async (req,res)=>{
 
 const store = async(req,res)=>{
 
-    const { name,email,spouse_id}=req.body
-    
-    // try{
-    //     spouse= await Spouse.findById(spouse_id)
-    //
-    // }catch (e) {
-    //     return res.status(500).json({message:'Please check spouse ID'})
-    //
-    // }
-    let spouse;
+    const { name,email,dateOfBirth,spouse_id}=req.body
+
 
     const NewCustomer = new Customer({
         name,
         email,
-        // spouse_id,
+        dateOfBirth,
+         // spouse_id,
     })
-    if(spouse){
+    if(spouse_id){
+        let spouse;
+        try{
+            spouse= await Spouse.findById(spouse_id)
+
+        }catch (e) {
+            return res.status(500).json({message:'Please check spouse ID'})
+        }
         NewCustomer.spouse_id= spouse_id
         spouse.customer= NewCustomer
         await spouse.save()
@@ -42,7 +42,7 @@ const store = async(req,res)=>{
         return res.status(500).json({message:e.toString()})
     }
 
-    return res.status(200).json({NewCustomer})
+    return res.status(201).json({NewCustomer})
 }
 
 const show= async (req,res)=>{

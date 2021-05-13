@@ -7,6 +7,15 @@ const port = 4000
 const customerRoutes= require('./Routes/customer')
 
 app.use(bodyParser.json())
+
+app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Origin','*')
+    res.setHeader('Access-Control-Allow-Headers','Origin,Content-Type,Accept')
+    res.setHeader('Access-Control-Allow-Methods','GET,POST,PATCH,DELETE')
+
+    next()
+})
+
 app.use('/api/customers',customerRoutes)
 
 
@@ -19,5 +28,5 @@ app.use('/api/customers',customerRoutes)
         console.log("development server start on port" + port)
     })
 }).catch(()=>{
-    console.log('unable to connect to BD!')
+    console.log('unable to connect to DB!')
  })
