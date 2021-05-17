@@ -14,13 +14,21 @@ const index = async (req,res)=>{
 
 const store = async(req,res)=>{
 
-    const { name,email,dateOfBirth,spouse_id}=req.body
+    const { name,email,dateOfBirth,address,postalCode,city,province,phone,sin,maritalStatus,
+        spouse_id}=req.body
 
 
     const NewCustomer = new Customer({
         name,
         email,
         dateOfBirth,
+        address,
+        postalCode,
+        city,
+        province,
+        phone,
+        sin,
+        maritalStatus
          // spouse_id,
     })
     if(spouse_id){
@@ -64,7 +72,8 @@ const show= async (req,res)=>{
 
 const update = async(req,res)=>{
     let customer_id = req.params.customer_id
-    const { name, email,spouse_id}= req.body
+    const { name, email,dateOfBirth,address,postalCode,city,province,phone,sin,maritalStatus,
+        spouse_id}= req.body
 
     const errors= validationResult(req)
 
@@ -81,7 +90,15 @@ const update = async(req,res)=>{
     }
     customer.name=name
     customer.email=email
-    
+    customer.dateOfBirth=dateOfBirth
+    customer.address=address
+    customer.postalCode=postalCode
+    customer.city=city
+    customer.province=province
+    customer.phone=phone
+    customer.sin=sin
+    customer.maritalStatus=maritalStatus
+
     try{
         await customer.save()
     }catch (e) {
@@ -91,7 +108,8 @@ const update = async(req,res)=>{
 }
 const deleteCustomer = async (req,res)=>{
     let customer_id = req.params.customer_id
-    const {name,email}=req.body
+    const {name,email,address,postalCode,city,province,phone,sin
+    }=req.body
 
     let customer;
 
@@ -106,7 +124,7 @@ const deleteCustomer = async (req,res)=>{
        return res.status(417).json({message:e.toString()})
     }
 
-    return res.status(200).json({message:'Book deleted successfully!'})
+    return res.status(200).json({message:'Customer deleted successfully!'})
 }
 
 
