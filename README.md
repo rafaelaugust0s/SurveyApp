@@ -1,11 +1,13 @@
 # SurveyApp
 BackEnd for SurveyApp
 
-http://localhost:3000/
+DEPLOY LINKhttps://survey-back-end.herokuapp.com/api/customers
 
-http://localhost:3000/MyForm
+ CREATE http://localhost:3000/
 
-http://localhost:3000/update
+ SHOW BY ID http://localhost:3000/MyForm
+
+UPDATE/ DELETE http://localhost:3000/update
 
 router.get('/', CustomerController.index)
 
