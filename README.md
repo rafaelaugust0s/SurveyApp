@@ -1,7 +1,7 @@
 # SurveyApp
 BackEnd for SurveyApp
 
-DEPLOY LINKhttps://survey-back-end.herokuapp.com/api/customers
+DEPLOY LINK https://survey-back-end.herokuapp.com/api/customers
 
  CREATE http://localhost:3000/
 
